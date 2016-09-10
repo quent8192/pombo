@@ -238,7 +238,7 @@ class Pombo(object):
             session. None if could not be determined.
         '''
 
-        user = None
+        user = "Unknown"
         if self.os_name == 'Windows':
             user = self.runprocess(['echo', '%userNAME%'], useshell=True)
         else:
@@ -248,7 +248,7 @@ class Pombo(object):
                     user = line.split(' ')[0]
                     if '(:0)' in line:
                         break
-            user = user.strip()
+        user = user.strip()
         self.log.debug('Username is %s', user)
         return user
 
